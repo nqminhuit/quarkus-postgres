@@ -1,8 +1,28 @@
 # quarkus-postgres
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Start postgres:
+```bash
+podman run --replace -d --name pgdb -p 5432:5432 \
+    -e POSTGRES_PASSWORD=dev \
+    -e POSTGRES_USER=dev \
+    -e POSTGRES_DB=art \
+    postgres:17.1-alpine3.20
+```
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+Access db:
+```bash
+podman exec -it pgdb psql -U dev art
+```
+
+List all tables:
+```sql
+\dt
+```
+
+Rest API test:
+```bash
+curl -sSL 'localhost:8080/sitemap' | jq
+```
 
 ## Running the application in dev mode
 

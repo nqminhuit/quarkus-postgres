@@ -23,4 +23,11 @@ public class SiteMap extends PanacheEntityBase {
     public static List<SiteMap> findByYear(int year) {
         return list("year", year);
     }
+
+    @Transactional
+    public static void save(List<SiteMapDto> dtos) {
+        dtos.stream()
+                .map(SiteMapDto::toEntity)
+                .forEach(x -> SiteMap.persist(x));
+    }
 }

@@ -22,6 +22,16 @@ List all tables:
 Rest API test:
 ```bash
 curl -sSL 'localhost:8080/sitemap' | jq
+
+curl -v -sSL 'localhost:8080/sitemap' \
+  -H 'content-type: application/json' \
+  -d '[
+    {"year":2020,"month":1,"url":"aabc.0.com"},
+    {"year":2020,"month":2,"url":"aabc.1.com"},
+    {"year":2020,"month":3,"url":"aabc.2.com"},
+    {"year":2020,"month":4,"url":"aabc.3.com"},
+    {"year":2020,"month":5,"url":"aabc.4.com"}
+]'
 ```
 
 ## Running the application in dev mode

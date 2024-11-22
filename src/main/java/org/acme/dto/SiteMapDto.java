@@ -16,4 +16,11 @@ public class SiteMapDto {
         return dto;
     }
 
+    public SiteMap toEntity() {
+        var entity = new SiteMap();
+        entity.year = this.year;
+        entity.month = this.month;
+        entity.url = this.url;
+        return entity;
+    }
 }
